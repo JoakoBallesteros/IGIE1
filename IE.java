@@ -66,8 +66,20 @@ class Heroe extends Personaje {
         System.out.println(nombre + " invoca el arma: " + arma.getNombre());
     }
 
+
+
     @Override
     public void decidirAccion(Personaje enemigo) {
+
+        if (bendicion >= 100) {
+            System.out.println("Heroe ¡" + nombre + " desata el Castigo Bendito! ✨");
+            System.out.println("Un rayo divino desciende desde los cielos...");
+            int dano = (int)(this.vida * 0.5); // 50% de la vida ACTUAL del héroe
+            enemigo.vida = Math.max(0, enemigo.vida - dano);
+            System.out.println(enemigo.nombre + " recibe " + dano + " de daño directo del rayo divino. Vida: " + enemigo.vida);
+            bendicion = 0; // consume la bendición
+            return;
+        }
         invocarArma();
         atacar(enemigo);
     }
@@ -234,6 +246,16 @@ public class IE {
         System.out.println(heroe);
         System.out.println(villano);
         System.out.println();
+
+
+        if (heroe.bendicion >= 100) {
+            System.out.println("Heroe " + heroe.nombre + " puede usar Castigo Bendito!");
+        }
+        if (villano.bendicion >= 100) {
+            System.out.println(" Villano " + villano.nombre + " puede usar Leviatán del Vacío!");
+        }
+        System.out.println();
+
 
         // Simulación de batalla
         while (heroe.estaVivo() && villano.estaVivo()) {
