@@ -23,6 +23,7 @@ El proyecto se encuentra actualmente en desarrollo. Se están implementando las 
 ```
 IGIE1/
 ├── src/IE.java
+├── Imagenes
 └── README.md
 ```
 
@@ -39,7 +40,7 @@ cd [NOMBRE_DEL_PROYECTO]
 [COMANDOS_DE_INSTALACIÓN]
 
 # Ejecutar el proyecto
-<img width="140" height="30" alt="image" src="./Imagenes/run.png"/>
+![Run](./Imagenes/run.png)
 
 
 ## 📞 Contacto
