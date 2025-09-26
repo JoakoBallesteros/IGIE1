@@ -40,7 +40,7 @@ cd [NOMBRE_DEL_PROYECTO]
 [COMANDOS_DE_INSTALACIÓN]
 
 # Ejecutar el proyecto
-![Run](./Imagenes/run.png)
+Run en IDE correspondiente
 
 
 ## 📞 Contacto
