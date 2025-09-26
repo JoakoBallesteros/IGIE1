@@ -7,7 +7,7 @@ Este proyecto forma parte de la materia **Interfaz Grafica** y se enfoca en el d
 ## 👥 Integrantes del Equipo
 
 - **[Joaquin Ballesteros]** - [Ataque Supremo/Villano]
-- **[Federico Terradas]** - [Ataque Supremo/Heroe]  
+- **[Federico Terradas]** - [Ataque Supremo/Heroe]  Prompts: https://claude.ai/share/dd041a24-b8ee-40a2-b069-a28dba2612ab
 - **[Nombre del Integrante 3]** - [Rol/Responsabilidad]
 - **[Nombre del Integrante 4]** - [Rol/Responsabilidad]
 
