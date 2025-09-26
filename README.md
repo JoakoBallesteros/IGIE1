@@ -39,7 +39,7 @@ cd [NOMBRE_DEL_PROYECTO]
 [COMANDOS_DE_INSTALACIÓN]
 
 # Ejecutar el proyecto
-<img width="140" height="30" alt="image" src="https://github.com/user-attachments/assets/a68881e6-20fb-4675-8704-31f7c42d13a4" />
+<img width="140" height="30" alt="image" src="./Imagenes/run.png />
 
 
 ## 📞 Contacto
