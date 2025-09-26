@@ -78,7 +78,7 @@ class Villano extends Personaje {
     public Villano(String nombre, int vida, int fuerza, int defensa, int bendicion) {
         super(nombre, vida, fuerza, defensa, bendicion);
     }
-    // -1: inactivo | >0: turnos restantes de casteo | 0: listo para ejecutar
+    
     private int leviatanTurnos = -1;
 
 
@@ -91,33 +91,33 @@ class Villano extends Personaje {
 
     @Override
     public void decidirAccion(Personaje enemigo) {
-    // Si ya está casteando Leviatán, avanzar el reloj
+    
     if (leviatanTurnos > 0) {
         leviatanTurnos--;
         System.out.println(nombre + " está casteando Leviatán del Vacío... (" + leviatanTurnos + " turnos restantes)");
-        // Mientras castea, NO ataca con armas normales
+        
         return;
     }
 
-    // Si el casteo terminó, ejecutar el ataque supremo
+   
     if (leviatanTurnos == 0) {
         System.out.println("¡" + nombre + " desata a Leviatán del Vacío!");
-        int dano = Math.max(1, enemigo.vida);       // 100% de la vida ACTUAL del héroe
+        int dano = Math.max(1, enemigo.vida);      
         enemigo.vida = Math.max(0, enemigo.vida - dano);
         System.out.println(enemigo.nombre + " recibe " + dano + " de daño directo de Leviatán. Vida: " + enemigo.vida);
-        leviatanTurnos = -1; // resetear
+        leviatanTurnos = -1; 
         return;
     }
 
-    // Si no está casteando y tiene 100% de bendición, iniciar el casteo
+    
     if (bendicion >= 100) {
-        leviatanTurnos = 3; // tarda 3 turnos en castear
-        bendicion = 0;      // consume la bendición
+        leviatanTurnos = 3; 
+        bendicion = 0;      
         System.out.println(nombre + " invoca a Leviatán del Vacío. Casteo iniciado (3 turnos).");
         return;
     }
 
-    // Comportamiento normal: invocar arma y atacar
+    
     invocarArma();
     atacar(enemigo);
 }
