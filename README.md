@@ -2,31 +2,27 @@
 
 ## 📋 Descripción del Proyecto
 
-Este proyecto forma parte de la materia **Ingeniería de Software** y se enfoca en el desarrollo de una interfaz gráfica de usuario.
+Este proyecto forma parte de la materia **Interfaz Grafica** y se enfoca en el desarrollo de mejorar la batalla aplicando herencia, polimorfismo, encapsulamiento, arrays y manipulación de Strings
 
 ## 👥 Integrantes del Equipo
 
-- **[Nombre del Integrante 1]** - [Rol/Responsabilidad]
-- **[Nombre del Integrante 2]** - [Rol/Responsabilidad]  
+- **[Joaquin Ballesteros]** - [Ataque Supremo/Villano]
+- **[Federico Terradas]** - [Ataque Supremo/Heroe]  
 - **[Nombre del Integrante 3]** - [Rol/Responsabilidad]
 - **[Nombre del Integrante 4]** - [Rol/Responsabilidad]
-
-## 🚧 Estado del Proyecto
 
 
 
 **🔨 Trabajando en IE - Interfaz Gráfica**
 
-El proyecto se encuentra actualmente en desarrollo. Se están implementando las funcionalidades principales de la interfaz de usuario.
+El proyecto se encuentra actualmente en desarrollo. Se están implementando las funcionalidades de Ataque Supremo, Historial de Batallas, Sistemas de Apodos y Validacion, Sistema de Reportes
 
 
 ## 📁 Estructura del Proyecto
 
 ```
-proyecto/
-├── src/
-├── docs/
-├── tests/
+IGIE1/
+├── src/IE.java
 └── README.md
 ```
 
@@ -43,8 +39,8 @@ cd [NOMBRE_DEL_PROYECTO]
 [COMANDOS_DE_INSTALACIÓN]
 
 # Ejecutar el proyecto
-[COMANDOS_DE_EJECUCIÓN]
-```
+<img width="140" height="30" alt="image" src="https://github.com/user-attachments/assets/a68881e6-20fb-4675-8704-31f7c42d13a4" />
+
 
 ## 📞 Contacto
 
