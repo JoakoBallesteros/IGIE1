@@ -39,7 +39,7 @@ cd [NOMBRE_DEL_PROYECTO]
 [COMANDOS_DE_INSTALACIÓN]
 
 # Ejecutar el proyecto
-<img width="140" height="30" alt="image" src="./Imagenes/run.png />
+<img width="140" height="30" alt="image" src="./Imagenes/run.png"/>
 
 
 ## 📞 Contacto
