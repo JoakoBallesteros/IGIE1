@@ -7,7 +7,7 @@ Este proyecto forma parte de la materia **Interfaz Grafica** y se enfoca en el d
 ## 👥 Integrantes del Equipo
 
 - **[Joaquin Ballesteros]** - [Ataque Supremo/Villano] Prompts: https://chatgpt.com/share/68d6a405-7c84-8004-9a09-123f9fa66cb7
-- **[Federico Terradas]** - [Ataque Supremo/Heroe]  Prompts: https://claude.ai/share/dd041a24-b8ee-40a2-b069-a28dba2612ab
+- **[Federico Terradas]** - [Ataque Supremo/Heroe]  Prompts: https://claude.ai/share/dd041a24-b8ee-40a2-b069-a28dba2612ab https://chatgpt.com/share/68d82961-a7dc-8002-94da-dd9f62cb9e7a
 - **[Mateo Bertello]** - [Historial Batallas/Metodos]  Prompts: https://g.co/gemini/share/64e50ca773e6
 - **[Nombre del Integrante 4]** - [Rol/Responsabilidad]
 
