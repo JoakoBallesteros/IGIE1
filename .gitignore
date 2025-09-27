@@ -1,0 +1,36 @@
+# ===============================
+# Archivos de compilación Java
+# ===============================
+*.class
+*.jar
+*.war
+*.ear
+
+# ===============================
+# Carpetas generadas por NetBeans
+# ===============================
+nbproject/private/
+build/
+dist/
+generated/
+
+# ===============================
+# Archivos de configuración de IDEs
+# ===============================
+.vscode/
+*.iml
+*.idea/
+
+# ===============================
+# Archivos de sistema
+# ===============================
+.DS_Store
+Thumbs.db
+*.log
+
+# ===============================
+# Archivos temporales
+# ===============================
+*.tmp
+*.bak
+*.swp
