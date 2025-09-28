@@ -45,9 +45,9 @@ class Villano extends Personaje {
 
     
     if (bendicion >= 100) {
-        leviatanTurnos = 3; 
+        leviatanTurnos = 2; 
         bendicion = 0;      
-        System.out.println(nombre + " invoca a Leviatán del Vacío. Casteo iniciado (3 turnos).");
+        System.out.println(nombre + " invoca a Leviatán del Vacío. Casteo iniciado.");
         return;
     }
 
