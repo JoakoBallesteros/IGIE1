@@ -4,10 +4,6 @@
  */
 package ieig1;
 
-/**
- *
- * @author Fede
- */
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,21 +18,16 @@ public class IEIG1 {
     // Crea la entrada usando StringBuilder en el formato pedido
     public static String crearEntradaBatalla(String heroe, String villano, String ganador, int turnos) {
         StringBuilder sb = new StringBuilder();
-        sb.append("BATALLA #").append(numeroBatallaGlobal).append(" - ");
-        sb.append("Heroe: ").append(heroe).append(" | ");
-        sb.append("Villano: ").append(villano).append(" | ");
-        sb.append("Ganador: ").append(ganador).append(" | ");
-        sb.append("Turnos: ").append(turnos);
+        sb.append("BATALLA #").append(numeroBatallaGlobal).append(" - ")
+          .append("Heroe: ").append(heroe).append(" | ")
+          .append("Villano: ").append(villano).append(" | ")
+          .append("Ganador: ").append(ganador).append(" | ")
+          .append("Turnos: ").append(turnos);
         return sb.toString();
     }
 
     // Guarda la última batalla manteniendo solo las últimas MAX_BATALLAS
     public static void guardarBatalla(String batalla) {
-        if (historialBatallas == null) {
-            historialBatallas = new String[MAX_BATALLAS];
-            contadorBatallas = 0;
-        }
-
         if (contadorBatallas < MAX_BATALLAS) {
             historialBatallas[contadorBatallas] = batalla;
             contadorBatallas++;
@@ -49,18 +40,18 @@ public class IEIG1 {
         }
     }
 
-    // === Método que pidió Mateo (mostrar historial con StringBuilder) ===
+    // (mostrar historial con StringBuilder)
     public static void mostrarHistorial() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n📜 * HISTORIAL DE BATALLAS (Ultimas ").append(MAX_BATALLAS).append(") * 📜\n");
+        sb.append("\n📜 * HISTORIAL DE BATALLAS (Últimas ").append(MAX_BATALLAS).append(") * 📜\n");
 
-        if (historialBatallas == null || contadorBatallas == 0) {
-            sb.append("Aun no se ha registrado ninguna batalla.\n");
+        if (contadorBatallas == 0) {
+            sb.append("Aún no se ha registrado ninguna batalla.\n");
         } else {
             int total = Math.min(contadorBatallas, MAX_BATALLAS);
             for (int i = 0; i < total; i++) {
                 String entrada = historialBatallas[i];
-                if (entrada == null) entrada = "(vacio)";
+                if (entrada == null) entrada = "(vacío)";
                 sb.append(" [").append(i + 1).append("] ").append(entrada).append("\n");
             }
         }
@@ -72,7 +63,7 @@ public class IEIG1 {
         Random rnd = new Random();
 
         // Crear héroe
-        System.out.print("Ingrese nombre del heroe: ");
+        System.out.print("Ingrese nombre del héroe: ");
         String nombreHeroe = sc.nextLine();
         Heroe heroe = new Heroe(
                 nombreHeroe,
@@ -104,20 +95,17 @@ public class IEIG1 {
             System.out.println("Heroe " + heroe.nombre + " puede usar Castigo Bendito!");
         }
         if (villano.bendicion >= 100) {
-            System.out.println(" Villano " + villano.nombre + " puede usar Leviatan del Vacio!");
+            System.out.println(" Villano " + villano.nombre + " puede usar Leviatán del Vacío!");
         }
         System.out.println();
         pausa(1000);
 
         int turno = 0;
-
         while (heroe.estaVivo() && villano.estaVivo()) {
             turno++;
             heroe.decidirAccion(villano);
             pausa(1500);
-            if (!villano.estaVivo()) {
-                break;
-            }
+            if (!villano.estaVivo()) break;
             villano.decidirAccion(heroe);
             pausa(1500);
             System.out.println();
@@ -133,7 +121,7 @@ public class IEIG1 {
             System.out.println(villano.nombre + " ha ganado la batalla!");
         }
 
-        // === Registrar en historial (exactamente como pidió Mateo) ===
+        // Registrar en historial 
         numeroBatallaGlobal++; // incrementar ANTES de armar la entrada
         String entrada = crearEntradaBatalla(heroe.nombre, villano.nombre, ganadorNombre, turno);
         guardarBatalla(entrada);
