@@ -34,14 +34,11 @@ IGIE1/
 git clone [URL_DEL_REPOSITORIO]
 
 # Navegar al directorio
-cd [NOMBRE_DEL_PROYECTO]
-
-# Instalar dependencias
-[COMANDOS_DE_INSTALACIÓN]
+cd IGIE1
 
 # Ejecutar el proyecto
 Run en IDE correspondiente
-
+(NetBeans)
 
 ## 📞 Contacto
 
