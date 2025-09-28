@@ -36,7 +36,7 @@ public class IEIG1 {
                 90 + rnd.nextInt(41),
                 20 + rnd.nextInt(11),
                 6 + rnd.nextInt(8),
-                100);
+                rnd.nextInt(101));
 
         System.out.println("\n⚔️ ¡Comienza la batalla! ⚔️");
         pausa(1500);
