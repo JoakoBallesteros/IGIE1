@@ -17,6 +17,8 @@ Este proyecto forma parte de la materia **Interfaz Grafica** y se enfoca en el d
 
 El proyecto se encuentra actualmente en desarrollo. Se están implementando las funcionalidades de Ataque Supremo, Historial de Batallas, Sistemas de Apodos y Validacion, Sistema de Reportes
 
+![Pantallazo del juego](img/captura.png)
+
 
 ## 📁 Estructura del Proyecto
 
