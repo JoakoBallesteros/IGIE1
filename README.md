@@ -25,6 +25,7 @@ El proyecto se encuentra actualmente en desarrollo. Se están implementando las 
 ```
 IGIE1/
 ├── src/IE.java
+├── img/
 └── README.md
 ```
 
