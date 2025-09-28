@@ -16,6 +16,36 @@ public class IEIG1 {
     /**
      * @param args the command line arguments
      */
+    private static final int MAX_BATALLAS = 5;
+    private static String[] historialBatallas = new String[MAX_BATALLAS];
+    private static int contadorBatallas;
+    private static int numeroBatallaGlobal = 0;
+    
+        public static String crearEntradaBatalla(String heroe, String villano, String ganador, int turnos) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("BATALLA #").append(numeroBatallaGlobal).append(" - ");
+        sb.append("Heroe: ").append(heroe).append(" | ");
+        sb.append("Villano: ").append(villano).append(" | ");
+        sb.append("Ganador: ").append(ganador).append(" | ");
+        sb.append("Turnos: ").append(turnos);
+        return sb.toString();}
+    
+    public static void guardarBatalla(String batalla) {
+        if (historialBatallas == null) {
+            historialBatallas = new String[MAX_BATALLAS];
+            contadorBatallas = 0;
+        }
+        
+        if (contadorBatallas < MAX_BATALLAS) {
+            historialBatallas[contadorBatallas] = batalla;
+            contadorBatallas++;
+        } else {
+            for (int i = 0; i < MAX_BATALLAS - 1; i++) {
+                historialBatallas[i] = historialBatallas[i + 1];
+            }
+            historialBatallas[MAX_BATALLAS - 1] = batalla;
+        }}
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rnd = new Random();
@@ -53,8 +83,12 @@ public class IEIG1 {
         }
         System.out.println();
         pausa(1000);
+        
+        
+        int turno = 0;
 
         while (heroe.estaVivo() && villano.estaVivo()) {
+            turno++;
             heroe.decidirAccion(villano);
             pausa(1500);
             if (!villano.estaVivo()) {
@@ -65,10 +99,13 @@ public class IEIG1 {
             System.out.println();
         }
 
+        String ganadorNombre;
         pausa(1000);
         if (heroe.estaVivo()) {
+            ganadorNombre = heroe.nombre;
             System.out.println(heroe.nombre + " ha ganado la batalla!");
         } else {
+            ganadorNombre = villano.nombre;
             System.out.println(villano.nombre + " ha ganado la batalla!");
         }
 
