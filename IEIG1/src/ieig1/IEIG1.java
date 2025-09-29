@@ -58,9 +58,38 @@ public class IEIG1 {
         System.out.println(sb.toString());
     }
 
+    // Helper para mostrar "Nombre (Apodo)" sin tocar las clases de personajes
+    private static String nombreMostrar(String nombreBase, Apodo apodo) {
+        if (apodo == null || apodo.getValor() == null || apodo.getValor().isBlank()) return nombreBase;
+        return nombreBase + " (" + apodo.getValor() + ")";
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rnd = new Random();
+
+        // ===========================
+        // SISTEMA DE APODOS (Consigna 3)
+        // ===========================
+        Apodo apodoHeroe = null;
+        while (apodoHeroe == null) {
+            try {
+                System.out.print("Ingrese apodo para el Héroe: ");
+                apodoHeroe = new Apodo(sc.nextLine()); // valida: 3-10, solo letras/espacios
+            } catch (IllegalArgumentException e) {
+                System.out.println("❌ " + e.getMessage());
+            }
+        }
+
+        Apodo apodoVillano = null;
+        while (apodoVillano == null) {
+            try {
+                System.out.print("Ingrese apodo para el Villano: ");
+                apodoVillano = new Apodo(sc.nextLine()); // valida: 3-10, solo letras/espacios
+            } catch (IllegalArgumentException e) {
+                System.out.println("❌ " + e.getMessage());
+            }
+        }
 
         // Crear héroe
         System.out.print("Ingrese nombre del héroe: ");
@@ -84,6 +113,10 @@ public class IEIG1 {
                 rnd.nextInt(101)
         );
 
+        // Nombres a mostrar (sin tocar clases existentes)
+        String heroeMostrar = nombreMostrar(heroe.nombre, apodoHeroe);
+        String villanoMostrar = nombreMostrar(villano.nombre, apodoVillano);
+
         System.out.println("\n⚔️ ¡Comienza la batalla! ⚔️");
         pausa(1500);
         System.out.println(heroe);
@@ -92,10 +125,10 @@ public class IEIG1 {
         pausa(2000);
 
         if (heroe.bendicion >= 100) {
-            System.out.println("Heroe " + heroe.nombre + " puede usar Castigo Bendito!");
+            System.out.println("Heroe " + heroeMostrar + " puede usar Castigo Bendito!");
         }
         if (villano.bendicion >= 100) {
-            System.out.println(" Villano " + villano.nombre + " puede usar Leviatán del Vacío!");
+            System.out.println(" Villano " + villanoMostrar + " puede usar Leviatán del Vacío!");
         }
         System.out.println();
         pausa(1000);
@@ -114,16 +147,16 @@ public class IEIG1 {
         String ganadorNombre;
         pausa(1000);
         if (heroe.estaVivo()) {
-            ganadorNombre = heroe.nombre;
-            System.out.println(heroe.nombre + " ha ganado la batalla!");
+            ganadorNombre = heroeMostrar;
+            System.out.println(heroeMostrar + " ha ganado la batalla!");
         } else {
-            ganadorNombre = villano.nombre;
-            System.out.println(villano.nombre + " ha ganado la batalla!");
+            ganadorNombre = villanoMostrar;
+            System.out.println(villanoMostrar + " ha ganado la batalla!");
         }
 
-        // Registrar en historial 
+        // Registrar en historial (usando los nombres con apodo)
         numeroBatallaGlobal++; // incrementar ANTES de armar la entrada
-        String entrada = crearEntradaBatalla(heroe.nombre, villano.nombre, ganadorNombre, turno);
+        String entrada = crearEntradaBatalla(heroeMostrar, villanoMostrar, ganadorNombre, turno);
         guardarBatalla(entrada);
         mostrarHistorial();
 
@@ -138,4 +171,3 @@ public class IEIG1 {
         }
     }
 }
-
