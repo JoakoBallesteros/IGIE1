@@ -36,7 +36,7 @@ IGIE1/
 
 ```bash
 # Clonar el repositorio
-git clone [URL_DEL_REPOSITORIO]
+git clone https://github.com/JoakoBallesteros/IGIE1.git
 
 # Navegar al directorio
 cd IGIE1
