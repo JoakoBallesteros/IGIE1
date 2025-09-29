@@ -15,6 +15,97 @@ public class IEIG1 {
     private static int contadorBatallas;
     private static int numeroBatallaGlobal = 0;
 
+    // ===================== REPORTE FINAL (tu código) =====================
+    private static void generarReporteFinal(Heroe heroe, Villano villano, int turnos) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("\n=======================================\n");
+        sb.append("        REPORTE FINAL DE LA BATALLA\n");
+        sb.append("=======================================\n");
+
+        // Mantengo tu salida tal cual
+        sb.append("Heroe: apodo ").append(heroe.getNombre())
+          .append(" - Vida final: ").append(heroe.getVida()).append("\n");
+        sb.append("Villano: apodo ").append(villano.getNombre())
+          .append(" - Vida final: ").append(villano.getVida()).append("\n");
+
+        // --- ARMAS INVOCADAS ---
+        sb.append("\n--- ARMAS INVOCADAS ---\n");
+        sb.append(formatearArmasInvocadas(heroe));
+        sb.append(formatearArmasInvocadas(villano));
+
+        // --- ATAQUES ESPECIALES ---
+        sb.append("\n--- ATAQUES ESPECIALES ---\n");
+        boolean huboAlgo = false;
+
+        if (heroe.getSupremosUsados() > 0) {
+            sb.append(heroe.getNombre())
+              .append(" activó \"Castigo Bendito\" → ")
+              .append(heroe.getUltimoDanoCastigo())
+              .append(" de daño\n");
+            huboAlgo = true;
+        }
+
+        if (villano.getSupremosUsados() > 0) {
+            if (villano.getUltimoDanoLeviatan() > 0) {
+                sb.append(villano.getNombre())
+                  .append(" invocó \"Leviatán del Vacío\" → ")
+                  .append(villano.getUltimoDanoLeviatan())
+                  .append(" de daño\n");
+            } else if (villano.leviatanInterrumpido()) {
+                sb.append(villano.getNombre())
+                  .append(" invocó \"Leviatán del Vacío\" (interrumpido en turno ")
+                  .append(turnos)
+                  .append(")\n");
+            }
+            huboAlgo = true;
+        } else if (villano.leviatanInterrumpido()) {
+            sb.append(villano.getNombre())
+              .append(" invocó \"Leviatán del Vacío\" (interrumpido en turno ")
+              .append(turnos)
+              .append(")\n");
+            huboAlgo = true;
+        }
+
+        if (!huboAlgo) {
+            sb.append("(sin usos de ataques supremos)\n");
+        }
+
+        // --- HISTORIAL RECIENTE ---
+        sb.append("\n--- HISTORIAL RECIENTE ---\n");
+        int total = Math.min(contadorBatallas, MAX_BATALLAS);
+        if (total == 0) {
+            sb.append("Aún no se ha registrado ninguna batalla.\n");
+        } else {
+            for (int i = 0; i < total; i++) {
+                String entrada = historialBatallas[i];
+                if (entrada == null) entrada = "(vacío)";
+                sb.append(entrada).append("\n");
+            }
+        }
+
+        sb.append("=======================================\n");
+        System.out.println(sb.toString());
+    }
+
+
+    private static String formatearArmasInvocadas(Personaje p) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(p.getNombre()).append(": ");
+        if (p.getArmasInvocadas().isEmpty()) {
+            sb.append("(no invocó armas)");
+        } else {
+            boolean primero = true;
+            for (var e : p.getArmasInvocadas().entrySet()) {
+                if (!primero) sb.append(", ");
+                sb.append(e.getKey()).append(" (").append(e.getValue()).append(")");
+                primero = false;
+            }
+        }
+        return sb.append("\n").toString();
+    }
+    // ==========================================================
+
     // Crea la entrada usando StringBuilder en el formato pedido
     public static String crearEntradaBatalla(String heroe, String villano, String ganador, int turnos) {
         StringBuilder sb = new StringBuilder();
@@ -32,7 +123,6 @@ public class IEIG1 {
             historialBatallas[contadorBatallas] = batalla;
             contadorBatallas++;
         } else {
-            // desplazar a la izquierda y poner la nueva al final
             for (int i = 0; i < MAX_BATALLAS - 1; i++) {
                 historialBatallas[i] = historialBatallas[i + 1];
             }
@@ -43,7 +133,7 @@ public class IEIG1 {
     // (mostrar historial con StringBuilder)
     public static void mostrarHistorial() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n📜 * HISTORIAL DE BATALLAS (Últimas ").append(MAX_BATALLAS).append(") * 📜\n");
+        sb.append("\n--- HISTORIAL RECIENTE ---\n");
 
         if (contadorBatallas == 0) {
             sb.append("Aún no se ha registrado ninguna batalla.\n");
@@ -52,13 +142,14 @@ public class IEIG1 {
             for (int i = 0; i < total; i++) {
                 String entrada = historialBatallas[i];
                 if (entrada == null) entrada = "(vacío)";
-                sb.append(" [").append(i + 1).append("] ").append(entrada).append("\n");
+                sb.append(entrada).append("\n");
             }
         }
+
         System.out.println(sb.toString());
     }
 
-    // Helper para mostrar "Nombre (Apodo)" sin tocar las clases de personajes
+
     private static String nombreMostrar(String nombreBase, Apodo apodo) {
         if (apodo == null || apodo.getValor() == null || apodo.getValor().isBlank()) return nombreBase;
         return nombreBase + " (" + apodo.getValor() + ")";
@@ -68,9 +159,7 @@ public class IEIG1 {
         Scanner sc = new Scanner(System.in);
         Random rnd = new Random();
 
-        // ===========================
-        // SISTEMA DE APODOS (Consigna 3)
-        // ===========================
+
         Apodo apodoHeroe = null;
         while (apodoHeroe == null) {
             try {
@@ -91,7 +180,7 @@ public class IEIG1 {
             }
         }
 
-        // Crear héroe
+
         System.out.print("Ingrese nombre del héroe: ");
         String nombreHeroe = sc.nextLine();
         Heroe heroe = new Heroe(
@@ -102,7 +191,7 @@ public class IEIG1 {
                 rnd.nextInt(102)
         );
 
-        // Crear villano
+
         System.out.print("Ingrese nombre del villano: ");
         String nombreVillano = sc.nextLine();
         Villano villano = new Villano(
@@ -113,7 +202,7 @@ public class IEIG1 {
                 rnd.nextInt(101)
         );
 
-        // Nombres a mostrar (sin tocar clases existentes)
+
         String heroeMostrar = nombreMostrar(heroe.nombre, apodoHeroe);
         String villanoMostrar = nombreMostrar(villano.nombre, apodoVillano);
 
@@ -154,11 +243,14 @@ public class IEIG1 {
             System.out.println(villanoMostrar + " ha ganado la batalla!");
         }
 
-        // Registrar en historial (usando los nombres con apodo)
+
         numeroBatallaGlobal++; // incrementar ANTES de armar la entrada
         String entrada = crearEntradaBatalla(heroeMostrar, villanoMostrar, ganadorNombre, turno);
         guardarBatalla(entrada);
         mostrarHistorial();
+
+        // reporte completo 
+        generarReporteFinal(heroe, villano, turno);
 
         sc.close();
     }
