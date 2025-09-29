@@ -12,8 +12,8 @@ Este proyecto forma parte de la materia **Interfaz Grafica** y se enfoca en el d
 - **[Mateo Paredes]** - [Historial/Batallas/Metodos]
 - **[Lucas Barberis]** - [Reporte Final de la batalla]
 - **[Federico Medina]** - [Reporte Final de la batalla]
-- **[Emanuel Ferrerya]** - [Rol/Responsabilidad]
-
+- **[Emanuel Ferrerya]** - [Apodos y validación]
+- **[Emanuel Ferrerya]** - [Apodos y validación]
 
 
 **🔨 Trabajando en IE - Interfaz Gráfica**
