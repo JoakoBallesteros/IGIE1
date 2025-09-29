@@ -4,6 +4,10 @@
 
 Este proyecto forma parte de la materia **Interfaz Grafica** y se enfoca en el desarrollo de mejorar la batalla aplicando herencia, polimorfismo, encapsulamiento, arrays y manipulación de Strings
 
+Video Explicativo
+
+https://youtu.be/fxeXCnW-tzI
+
 ## 👥 Integrantes del Equipo
 
 - **[Joaquin Ballesteros]** - [Ataque Supremo/Villano] Prompts: https://chatgpt.com/share/68d6a405-7c84-8004-9a09-123f9fa66cb7
