@@ -13,7 +13,7 @@ Este proyecto forma parte de la materia **Interfaz Grafica** y se enfoca en el d
 - **[Lucas Barberis]** - [Reporte Final de la batalla]
 - **[Federico Medina]** - [Reporte Final de la batalla]
 - **[Emanuel Ferrerya]** - [Apodos y validación]
-- **[Emanuel Ferrerya]** - [Apodos y validación]
+- **[Tomas Mondino]** - [Apodos y validación]
 
 
 **🔨 Trabajando en IE - Interfaz Gráfica**
