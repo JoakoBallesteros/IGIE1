@@ -10,7 +10,7 @@ Este proyecto forma parte de la materia **Interfaz Grafica** y se enfoca en el d
 - **[Federico Terradas]** - [Ataque Supremo/Heroe]  Prompts: https://claude.ai/share/dd041a24-b8ee-40a2-b069-a28dba2612ab https://chatgpt.com/share/68d82961-a7dc-8002-94da-dd9f62cb9e7a https://claude.ai/share/dcb3e73e-1a2b-4d16-bdf9-da447fc37825
 - **[Mateo Bertello]** - [Historial Batallas/Metodos]  Prompts: https://g.co/gemini/share/64e50ca773e6
 - **[Mateo Paredes]** - [Historial/Batallas/Metodos]
-- **[Nombre del Integrante 4]** - [Rol/Responsabilidad]
+- **[Emanuel Ferrerya]** - [Rol/Responsabilidad]
 
 
 
